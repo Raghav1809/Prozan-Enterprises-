@@ -10,6 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
+    <script src="dynamic-text.js"></script>
+    <style>
+        .dynamic-text {
+            color: #00E5FF;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        }
+        .dynamic-text::after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            color: #00E5FF;
+            animation: blink 0.7s infinite;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Bar -->
@@ -17,10 +39,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 animate__animated animate__fadeInLeft">
-                    <i class="fas fa-phone-alt me-2"></i> Call for help: +91 903-904-5757
+                    <a href="tel:+91 903-904-5757" style="color: #ffffff;text-decoration: none;">Call to : +91 903-904-5757</a>
                 </div>
                 <div class="col-md-6 text-end animate__animated animate__fadeInRight">
-                    <i class="fas fa-envelope me-2"></i> Mail to us: sindiyatroop@gmail.com
+                    <a href="mailto:sindiyatroop@gmail.com" style="color: #ffffff; text-decoration: none;">Mail to : sindiyatroop@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -29,7 +51,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand animate__animated animate__fadeIn" href="#">
+            <a class="navbar-brand animate__animated animate__fadeIn" href="index.html">
                 <img src="Images/Prozan_Logo-removebg-preview(1).png" alt="Proban Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -71,12 +93,18 @@
                     </h1>
                     <div class="tagline-wrapper mb-4">
                         <p class="lead text-white">Your trusted partner in 
-                            <span class="dynamic-text">strategic growth</span>
+                            <span class="dynamic-text" id="dynamic-text">strategic growth</span>
                         </p>
                     </div>
-                    <div class="cta-buttons">
-                        <button class="btn btn-primary btn-lg me-3">Get Started</button>
-                        <button class="btn btn-outline-light btn-lg">Learn More</button>
+                    <div class="btn-wrapper">
+                        <a href="services.html" class="btn btn-primary">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="aboutus.html" class="btn btn-secondary">
+                            Learn More
+                            <i class="fas fa-info-circle"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6 hero-visual">
@@ -107,7 +135,7 @@
                 <p>
                     Welcome to Sindiatroop, where we believe in a brighter, more sustainable future powered by the sun. At Sindiatroop, we are dedicated to providing innovative solar energy solutions that are not only efficient and reliable but also environmentally friendly. Our mission is to harness the power of the sun to create a cleaner, greener planet for generations to come.
                 </p>
-                <a href="#" class="btn about-btn">About Us</a>
+                <a href="aboutus.html" class="btn about-btn">About Us</a>
             </div>
         </div>
     </div>
@@ -323,21 +351,21 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="contactnew.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-services">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-solar-panel"></i> Residential Solar</a></li>
-                        <li><a href="#"><i class="fas fa-building"></i> Commercial Solar</a></li>
-                        <li><a href="#"><i class="fas fa-battery-full"></i> Energy Storage</a></li>
-                        <li><a href="#"><i class="fas fa-tools"></i> Maintenance</a></li>
-                        <li><a href="#"><i class="fas fa-chart-line"></i> Monitoring</a></li>
+                        <li><a href="services.html"><i class="fas fa-solar-panel"></i> Solar Miniatures</a></li>
+                        <li><a href="services.html"><i class="fas fa-building"></i> Solar Accessories</a></li>
+                        <li><a href="services.html"><i class="fas fa-battery-full"></i> UPS System</a></li>
+                        <li><a href="services.html"><i class="fas fa-tools"></i> AMC Services</a></li>
+                        <li><a href="services.html"><i class="fas fa-chart-line"></i> All Types Of Batteries</a></li>
                     </ul>
                 </div>
 

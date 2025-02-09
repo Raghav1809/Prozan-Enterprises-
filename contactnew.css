@@ -105,7 +105,7 @@
 }
 
 .hero-section {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/solar-panels-pink-sky.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Images/solar-panels-pink-sky.jpg');
     background-size: cover;
     height: 400px;
     display: flex;
