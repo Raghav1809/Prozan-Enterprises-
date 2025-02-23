@@ -13,6 +13,30 @@
     <link rel="stylesheet" href="abouotus.css">
 </head>
 <body>
+    <div class="loader-container">
+        <div class="circuit-lines" id="circuitLines"></div>
+        <div class="power-icon"></div>
+        
+        <div class="solar-panel">
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+        </div>
+
+        <div class="company-name">Prozan Enterprises</div>
+        <div class="tagline">Powering Tomorrow's Sustainable Future</div>
+        
+        <div class="progress-wrapper">
+            <div class="progress-text">Loading...</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+
+        <div class="loading-tip" id="loadingTip"></div>
+    </div>
+
      <!-- Top Bar -->
  <div class="top-bar">
     <div class="container">
@@ -205,7 +229,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="500">0</div>
+                            <div class="stat-number" data-count="500">500</div>
                             <h3 class="stat-label">Happy Clients</h3>
                         </div>
                         <div class="stat-decoration">
@@ -223,7 +247,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-number" data-count="1000">155</div>
                             <h3 class="stat-label">Solar Installations</h3>
                         </div>
                         <div class="stat-decoration">
@@ -241,7 +265,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-number" data-count="50">80</div>
                             <h3 class="stat-label">Expert Team</h3>
                         </div>
                         <div class="stat-decoration">
@@ -259,7 +283,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-number" data-count="10">12</div>
                             <h3 class="stat-label">Years Experience</h3>
                         </div>
                         <div class="stat-decoration">
@@ -272,6 +296,7 @@
         </div>
     </div>
 </section>
+<br>
 
 <!-- Footer Section -->
 <footer class="footer-section">
@@ -398,27 +423,6 @@
             }
         });
 
-        // Stats Counter Animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-count'));
-                let count = 0;
-                const duration = 2000;
-                const increment = target / (duration / 16);
-
-                const timer = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        stat.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.floor(count);
-                    }
-                }, 16);
-            });
-        }
-
         // Intersection Observer for Stats
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -461,18 +465,7 @@ function animateCounter(element) {
     }, 16);
 }
 
-// Initialize counters when they come into view
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                animateCounter(counter);
-            });
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+
 
 // Observe stats section
 observer.observe(document.querySelector('.stats-section'));
@@ -497,5 +490,76 @@ document.querySelectorAll('.mission-box, .stat-card').forEach(card => {
         this.style.transform = 'translateY(0)';
     });
 });
+
+ // Loading Screen
+         // Create circuit lines
+         function createCircuitLines() {
+        const container = document.getElementById('circuitLines');
+        const lineCount = 20;
+
+        for (let i = 0; i < lineCount; i++) {
+            const line = document.createElement('div');
+            line.className = 'circuit-line';
+            
+            const isHorizontal = Math.random() > 0.5;
+            const size = Math.random() * 100 + 50;
+            
+            line.style.width = isHorizontal ? `${size}px` : '2px';
+            line.style.height = isHorizontal ? '2px' : `${size}px`;
+            line.style.left = `${Math.random() * 100}%`;
+            line.style.top = `${Math.random() * 100}%`;
+            line.style.animationDelay = `${Math.random() * 3}s`;
+            
+            container.appendChild(line);
+        }
+    }
+
+    const tips = [
+        "🌞 Powering homes with clean solar energy",
+        "⚡ Smart energy solutions for modern living",
+        "🔋 Leading innovation in sustainable tech",
+        "💡 Creating a brighter, cleaner future",
+        "🌱 Sustainable electronics for tomorrow",
+        "⚡ Expert solar solutions by Prozan",
+        "🔋 Renewable energy for a better world"
+    ];
+
+    function updateProgressText(percentage) {
+        const progressText = document.querySelector('.progress-text');
+        progressText.textContent = `Loading... ${percentage}%`;
+    }
+
+    function showRandomTip() {
+        const tipElement = document.getElementById('loadingTip');
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        tipElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            tipElement.textContent = randomTip;
+            tipElement.style.opacity = '1';
+        }, 500);
+    }
+
+    createCircuitLines();
+    showRandomTip();
+    setInterval(showRandomTip, 3000);
+
+    // Progress text animation
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += 1;
+        updateProgressText(Math.min(progress, 100));
+        if (progress >= 100) clearInterval(progressInterval);
+    }, 45);
+
+    // Extended loading time to 4.5 seconds
+    setTimeout(() => {
+        const loader = document.querySelector('.loader-container');
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 1s ease-out';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 1000);
+    }, 4500);
 </script>
 </html>

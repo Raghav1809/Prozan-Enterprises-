@@ -1,447 +1,925 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Prozan</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="Images/Prozan_Logo-removebg-preview(1).png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="Images/Prozan_Logo-removebg-preview(1).png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
     <script src="dynamic-text.js"></script>
     <style>
-        .dynamic-text {
-            color: #00E5FF;
+      .dynamic-text {
+        color: #00e5ff;
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+      }
+      .dynamic-text::after {
+        content: "|";
+        position: absolute;
+        right: -8px;
+        color: #00e5ff;
+        animation: blink 0.7s infinite;
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+
+      /* Loading Screen */
+      .loader-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #E3F2FD 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        /* Solar Panel Grid Animation */
+        .solar-panel {
+            width: 140px;
+            height: 140px;
             position: relative;
-            display: inline-block;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            transform: perspective(500px) rotateX(20deg);
+            animation: panelFloat 4s ease-in-out infinite;
         }
-        .dynamic-text::after {
-            content: "|";
+
+        .solar-cell {
+            background: linear-gradient(45deg, #1976D2, #42A5F5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2);
+        }
+
+        .solar-cell::after {
+            content: '';
             position: absolute;
-            right: -8px;
-            color: #00E5FF;
-            animation: blink 0.7s infinite;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            top: -100%;
+            left: -100%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            animation: cellGlow 3s linear infinite;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+        @keyframes cellGlow {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes panelFloat {
+            0%, 100% {
+                transform: perspective(500px) rotateX(20deg) translateY(0);
+            }
+            50% {
+                transform: perspective(500px) rotateX(20deg) translateY(-15px);
+            }
+        }
+
+        /* Circuit Lines */
+        .circuit-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: rgba(33, 150, 243, 0.15);
+            animation: pulseLine 3s infinite linear;
+        }
+
+        @keyframes pulseLine {
+            0% { opacity: 0.15; }
+            50% { opacity: 0.3; }
+            100% { opacity: 0.15; }
+        }
+
+        .company-name {
+            margin-top: 35px;
+            color: #1976D2;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(25, 118, 210, 0.2);
+        }
+
+        .tagline {
+            color: #2196F3;
+            font-size: 1.2rem;
+            margin-top: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .progress-wrapper {
+            width: 300px;
+            margin-top: 35px;
+            position: relative;
+        }
+
+        .progress {
+            height: 10px;
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #1976D2, #42A5F5);
+            animation: progress 4.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+        }
+
+        .progress-text {
+            position: absolute;
+            right: 0;
+            top: -25px;
+            color: #1976D2;
+            font-weight: 600;
+            animation: progressText 4.5s linear;
+        }
+
+        @keyframes progress {
+            0% { width: 0; }
+            20% { width: 20%; }
+            50% { width: 50%; }
+            80% { width: 80%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes progressText {
+            0% { content: "0%"; }
+            20% { content: "20%"; }
+            50% { content: "50%"; }
+            80% { content: "80%"; }
+            100% { content: "100%"; }
+        }
+
+        .loading-tip {
+            position: absolute;
+            bottom: 40px;
+            text-align: center;
+            color: #1976D2;
+            font-size: 1.1rem;
+            padding: 18px 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            max-width: 90%;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);
+            animation: tipFloat 3s ease-in-out infinite;
+            border: 1px solid rgba(33, 150, 243, 0.1);
+        }
+
+        @keyframes tipFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .power-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1976D2;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: iconPulse 2s infinite;
+        }
+
+        .power-icon::after {
+            content: "⚡";
+            color: white;
+            font-size: 24px;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loader-container">
+      <div class="circuit-lines" id="circuitLines"></div>
+      <div class="power-icon"></div>
+      
+      <div class="solar-panel">
+          <div class="solar-cell"></div>
+          <div class="solar-cell"></div>
+          <div class="solar-cell"></div>
+          <div class="solar-cell"></div>
+      </div>
+
+      <div class="company-name">Prozan Enterprises</div>
+      <div class="tagline">Powering Tomorrow's Sustainable Future</div>
+      
+      <div class="progress-wrapper">
+          <div class="progress-text">Loading...</div>
+          <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+      </div>
+
+      <div class="loading-tip" id="loadingTip"></div>
+  </div>
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 animate__animated animate__fadeInLeft">
-                    <a href="tel:+91 903-904-5757" style="color: #ffffff;text-decoration: none;">Call to : +91 903-904-5757</a>
-                </div>
-                <div class="col-md-6 text-end animate__animated animate__fadeInRight">
-                    <a href="mailto:sindiyatroop@gmail.com" style="color: #ffffff; text-decoration: none;">Mail to : sindiyatroop@gmail.com</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 animate__animated animate__fadeInLeft">
+            <a
+              href="tel:+91 903-904-5757"
+              style="color: #ffffff; text-decoration: none"
+              >Call to : +91 903-904-5757</a
+            >
+          </div>
+          <div class="col-md-6 text-end animate__animated animate__fadeInRight">
+            <a
+              href="mailto:sindiyatroop@gmail.com"
+              style="color: #ffffff; text-decoration: none"
+              >Mail to : sindiyatroop@gmail.com</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand animate__animated animate__fadeIn" href="index.html">
-                <img src="Images/Prozan_Logo-removebg-preview(1).png" alt="Proban Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+      <div class="container">
+        <a
+          class="navbar-brand animate__animated animate__fadeIn"
+          href="index.html"
+        >
+          <img
+            src="Images/Prozan_Logo-removebg-preview(1).png"
+            alt="Proban Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link animate__animated animate__fadeIn"
+                href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active animate__animated animate__fadeIn"
+                href="services.html"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link animate__animated animate__fadeIn"
+                href="aboutus.html"
+                >About us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link animate__animated animate__fadeIn"
+                href="contactnew.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div class="position-relative animate__animated animate__fadeIn">
+            <input
+              type="text"
+              class="form-control search-box"
+              placeholder="Search"
+            />
+            <button class="search-btn">
+              <i class="fas fa-search"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link animate__animated animate__fadeIn" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active animate__animated animate__fadeIn" href="services.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link animate__animated animate__fadeIn" href="aboutus.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link animate__animated animate__fadeIn" href="contactnew.html">Contact</a>
-                    </li>
-                </ul>
-                <div class="position-relative animate__animated animate__fadeIn">
-                    <input type="text" class="form-control search-box" placeholder="Search">
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Hero section -->
     <section class="hero">
-        <div class="animated-background"></div>
-        <div class="container">
-            <div class="row min-vh-100 align-items-center">
-                <div class="col-lg-6 hero-content">
-                    <h1 class="display-3 fw-bold text-white mb-4">
-                        Driving Innovation, <br>Empowering Success
-                    </h1>
-                    <div class="tagline-wrapper mb-4">
-                        <p class="lead text-white">Your trusted partner in 
-                            <span class="dynamic-text" id="dynamic-text">strategic growth</span>
-                        </p>
-                    </div>
-                    <div class="btn-wrapper">
-                        <a href="services.html" class="btn btn-primary">
-                            Get Started
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="aboutus.html" class="btn btn-secondary">
-                            Learn More
-                            <i class="fas fa-info-circle"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 hero-visual">
-                    <div class="animation-wrapper">
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_hxart9lz.json" 
-                            background="transparent" speed="1" loop autoplay>
-                        </lottie-player>
-                    </div>
-                </div>
+      <div class="animated-background"></div>
+      <div class="container">
+        <div class="row min-vh-100 align-items-center">
+          <div class="col-lg-6 hero-content">
+            <h1 class="display-3 fw-bold text-white mb-4">
+              Driving Innovation, <br />Empowering Success
+            </h1>
+            <div class="tagline-wrapper mb-4">
+              <p class="lead text-white">
+                Your trusted partner in
+                <span class="dynamic-text" id="dynamic-text"
+                  >strategic growth</span
+                >
+              </p>
             </div>
+            <div class="btn-wrapper">
+              <a href="services.html" class="btn btn-primary">
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="aboutus.html" class="btn btn-secondary">
+                Learn More
+                <i class="fas fa-info-circle"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 hero-visual">
+            <div class="animation-wrapper">
+              <lottie-player
+                src="https://assets2.lottiefiles.com/packages/lf20_hxart9lz.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              >
+              </lottie-player>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-     <!-- About us section -->
-     <div class="container mt-5">
-        <div class="row align-items-center about-section">
-            <div class="col-md-6 position-relative">
-                <img src="Images/HD-wallpaper-man-made-wind-turbine-solar-panel-thumbnail.jpg" alt="Solar Panel Field" class="img-fluid">
-                <div class="experience-card">
-                    <h3>12+</h3>
-                    <p>Years Experiences</p>
-                </div>
-            </div>
-            <div class="col-md-6 about-content">
-                <h6 class="text-primary">About Sindiatroop</h6>
-                <h2>You can depend on us to get good services</h2>
-                <p>We are Sindiatroop, a solar service provider.</p>
-                <p>
-                    Welcome to Sindiatroop, where we believe in a brighter, more sustainable future powered by the sun. At Sindiatroop, we are dedicated to providing innovative solar energy solutions that are not only efficient and reliable but also environmentally friendly. Our mission is to harness the power of the sun to create a cleaner, greener planet for generations to come.
-                </p>
-                <a href="aboutus.html" class="btn about-btn">About Us</a>
-            </div>
+    <!-- About us section -->
+    <div class="container mt-5">
+      <div class="row align-items-center about-section">
+        <div class="col-md-6 position-relative">
+          <img
+            src="Images/HD-wallpaper-man-made-wind-turbine-solar-panel-thumbnail.jpg"
+            alt="Solar Panel Field"
+            class="img-fluid"
+          />
+          <div class="experience-card">
+            <h3>12+</h3>
+            <p>Years Experiences</p>
+          </div>
         </div>
+        <div class="col-md-6 about-content">
+          <h6 class="text-primary">About Sindiatroop</h6>
+          <h2>You can depend on us to get good services</h2>
+          <p>We are Sindiatroop, a solar service provider.</p>
+          <p>
+            Welcome to Sindiatroop, where we believe in a brighter, more
+            sustainable future powered by the sun. At Sindiatroop, we are
+            dedicated to providing innovative solar energy solutions that are
+            not only efficient and reliable but also environmentally friendly.
+            Our mission is to harness the power of the sun to create a cleaner,
+            greener planet for generations to come.
+          </p>
+          <a href="aboutus.html" class="btn about-btn">About Us</a>
+        </div>
+      </div>
     </div>
 
     <!-- Services Section -->
     <div class="container my-5">
-        <div class="row">
-            <!-- Service Card 1 -->
-            <div class="col-md-4 reveal">
-                <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/71huJbSZOvL._AC_UF10001000_QL80_-600x361.jpg" class="card-img-top" alt="Solar Mini Home Light System">
-                    <div class="card-body">
-                        <div class="icon-box floating">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h5 class="card-title">SOLAR MINI HOME LIGHT SYSTEM</h5>
-                        <p class="card-text">Efficient and reliable solar-powered lighting solutions for residential applications, perfect for sustainable home energy management.</p>
-                    </div>
-                </div>
+      <div class="row">
+        <!-- Service Card 1 -->
+        <div class="col-md-4 reveal">
+          <div class="card services-card">
+            <img
+              src="https://sindiatroop.com/wp-content/uploads/2020/10/71huJbSZOvL._AC_UF10001000_QL80_-600x361.jpg"
+              class="card-img-top"
+              alt="Solar Mini Home Light System"
+            />
+            <div class="card-body">
+              <div class="icon-box floating">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h5 class="card-title">SOLAR MINI HOME LIGHT SYSTEM</h5>
+              <p class="card-text">
+                Efficient and reliable solar-powered lighting solutions for
+                residential applications, perfect for sustainable home energy
+                management.
+              </p>
             </div>
-
-            <!-- Service Card 2 -->
-            <div class="col-md-4 reveal">
-                <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/Off-Grid-600x361.png" class="card-img-top" alt="Solar Off Grid System">
-                    <div class="card-body">
-                        <div class="icon-box floating">
-                            <i class="fas fa-solar-panel"></i>
-                        </div>
-                        <h5 class="card-title">SOLAR OFF GRID SYSTEM – DOMESTIC AND INDUSTRIAL</h5>
-                        <p class="card-text">Complete off-grid solar solutions for both residential and industrial applications, ensuring energy independence.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 3 -->
-            <div class="col-md-4 reveal">
-                <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/IMG_3867-600x361.jpeg" class="card-img-top" alt="Solar Lift UPS">
-                    <div class="card-body">
-                        <div class="icon-box floating">
-                            <i class="fas fa-battery-full"></i>
-                        </div>
-                        <h5 class="card-title">SOLAR LIFT UPS BACK UP WITH LITHIUM BATTERY</h5>
-                        <p class="card-text">Advanced lithium battery backup systems for elevators and critical applications, providing reliable power supply.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Service Card 2 -->
+        <div class="col-md-4 reveal">
+          <div class="card services-card">
+            <img
+              src="https://sindiatroop.com/wp-content/uploads/2020/10/Off-Grid-600x361.png"
+              class="card-img-top"
+              alt="Solar Off Grid System"
+            />
+            <div class="card-body">
+              <div class="icon-box floating">
+                <i class="fas fa-solar-panel"></i>
+              </div>
+              <h5 class="card-title">
+                SOLAR OFF GRID SYSTEM – DOMESTIC AND INDUSTRIAL
+              </h5>
+              <p class="card-text">
+                Complete off-grid solar solutions for both residential and
+                industrial applications, ensuring energy independence.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="col-md-4 reveal">
+          <div class="card services-card">
+            <img
+              src="https://sindiatroop.com/wp-content/uploads/2020/10/IMG_3867-600x361.jpeg"
+              class="card-img-top"
+              alt="Solar Lift UPS"
+            />
+            <div class="card-body">
+              <div class="icon-box floating">
+                <i class="fas fa-battery-full"></i>
+              </div>
+              <h5 class="card-title">
+                SOLAR LIFT UPS BACK UP WITH LITHIUM BATTERY
+              </h5>
+              <p class="card-text">
+                Advanced lithium battery backup systems for elevators and
+                critical applications, providing reliable power supply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Why Choose Us Section -->
-<section class="text-white py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/solar-panel-8162993_1280.jpg');">
-    <div class="container">
+    <section
+      class="text-white py-5"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url('Images/solar-panel-8162993_1280.jpg');
+      "
+    >
+      <div class="container">
         <div class="text-center mb-5">
-            <h3 class="font-weight-bold display-4">Why Choose Us?</h3>
-            <p class="mb-4">At Prozan, we stand out in the solar energy industry for several compelling reasons. When you choose us, you are choosing a partner dedicated to excellence, sustainability, and customer satisfaction.</p>
+          <h3 class="font-weight-bold display-4">Why Choose Us?</h3>
+          <p class="mb-4">
+            At Prozan, we stand out in the solar energy industry for several
+            compelling reasons. When you choose us, you are choosing a partner
+            dedicated to excellence, sustainability, and customer satisfaction.
+          </p>
         </div>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card bg-primary text-white text-center p-4 rounded shadow hover-effect">
-                    <i class="fas fa-star fa-3x mb-3"></i>
-                    <h5 class="font-weight-bold">Quality Assurance</h5>
-                    <p>We guarantee top-quality products and services to ensure maximum efficiency and satisfaction.</p>
-                </div>
+          <div class="col-md-4 mb-4">
+            <div
+              class="card bg-primary text-white text-center p-4 rounded shadow hover-effect"
+            >
+              <i class="fas fa-star fa-3x mb-3"></i>
+              <h5 class="font-weight-bold">Quality Assurance</h5>
+              <p>
+                We guarantee top-quality products and services to ensure maximum
+                efficiency and satisfaction.
+              </p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card bg-primary text-white text-center p-4 rounded shadow hover-effect">
-                    <i class="fas fa-thumbs-up fa-3x mb-3"></i>
-                    <h5 class="font-weight-bold">Expert Team</h5>
-                    <p>Our skilled professionals bring years of experience and knowledge to every project.</p>
-                </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div
+              class="card bg-primary text-white text-center p-4 rounded shadow hover-effect"
+            >
+              <i class="fas fa-thumbs-up fa-3x mb-3"></i>
+              <h5 class="font-weight-bold">Expert Team</h5>
+              <p>
+                Our skilled professionals bring years of experience and
+                knowledge to every project.
+              </p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card bg-primary text-white text-center p-4 rounded shadow hover-effect">
-                    <i class="fas fa-clipboard-check fa-3x mb-3"></i>
-                    <h5 class="font-weight-bold">Sustainable Solutions</h5>
-                    <p>We focus on providing innovative solutions that contribute to a sustainable future.</p>
-                </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div
+              class="card bg-primary text-white text-center p-4 rounded shadow hover-effect"
+            >
+              <i class="fas fa-clipboard-check fa-3x mb-3"></i>
+              <h5 class="font-weight-bold">Sustainable Solutions</h5>
+              <p>
+                We focus on providing innovative solutions that contribute to a
+                sustainable future.
+              </p>
             </div>
+          </div>
         </div>
         <div class="text-center mt-4">
-            <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-custom btn-lg bg-primary">
-                    <i class="fas fa-arrow-right me-2"></i>Read More
-                </a>
-            </div>
+          <div class="d-flex justify-content-center">
+            <a href="#" class="btn btn-custom btn-lg bg-primary">
+              <i class="fas fa-arrow-right me-2"></i>Read More
+            </a>
+          </div>
         </div>
-        
-    </div>
-</section>
-
+      </div>
+    </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials-section">
-        <div class="section-title">
-            <h2>What Our Clients Say</h2>
-            <p>Real feedback from our valued customers</p>
+      <div class="section-title">
+        <h2>What Our Clients Say</h2>
+        <p>Real feedback from our valued customers</p>
+      </div>
+
+      <div class="testimonials-container">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card fade-in" style="animation-delay: 0.2s">
+          <div class="testimonial-header">
+            <div class="client-image">
+              <img
+                src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.23.42-PM-75x75.jpeg"
+                alt="John Smith"
+              />
+            </div>
+            <div class="client-info">
+              <h4>Abhay A Shinde</h4>
+              <p>Founder of Ref Group</p>
+              <div class="rating">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-text">
+            "The solar installation process was seamless and professional. The
+            team was knowledgeable and helped us understand every step. Our
+            energy bills have significantly decreased since the installation."
+          </div>
+          <div class="testimonial-footer">
+            <span class="review-date">2 weeks ago</span>
+            <span class="verification-badge">
+              <i class="fas fa-check-circle"></i>
+              Verified Customer
+            </span>
+          </div>
         </div>
 
-        <div class="testimonials-container">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card fade-in" style="animation-delay: 0.2s">
-                <div class="testimonial-header">
-                    <div class="client-image">
-                        <img src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.23.42-PM-75x75.jpeg" alt="John Smith">
-                    </div>
-                    <div class="client-info">
-                        <h4>Abhay A Shinde</h4>
-                        <p>Founder of Ref Group</p>
-                        <div class="rating">
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    "The solar installation process was seamless and professional. The team was knowledgeable and helped us understand every step. Our energy bills have significantly decreased since the installation."
-                </div>
-                <div class="testimonial-footer">
-                    <span class="review-date">2 weeks ago</span>
-                    <span class="verification-badge">
-                        <i class="fas fa-check-circle"></i>
-                        Verified Customer
-                    </span>
-                </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card fade-in" style="animation-delay: 0.4s">
+          <div class="testimonial-header">
+            <div class="client-image">
+              <img
+                src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.22.39-PM-75x75.jpeg"
+                alt="Sarah Johnson"
+              />
             </div>
-
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card fade-in" style="animation-delay: 0.4s">
-                <div class="testimonial-header">
-                    <div class="client-image">
-                        <img src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.22.39-PM-75x75.jpeg" alt="Sarah Johnson">
-                    </div>
-                    <div class="client-info">
-                        <h4>Sanika A Shinde</h4>
-                        <p>Agent Manager</p>
-                        <div class="rating">
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star-half-alt star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    "I'm amazed by the difference solar panels have made to my home. The installation team was professional and efficient. The ongoing support has been exceptional!"
-                </div>
-                <div class="testimonial-footer">
-                    <span class="review-date">1 month ago</span>
-                    <span class="verification-badge">
-                        <i class="fas fa-check-circle"></i>
-                        Verified Customer
-                    </span>
-                </div>
+            <div class="client-info">
+              <h4>Sanika A Shinde</h4>
+              <p>Agent Manager</p>
+              <div class="rating">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star-half-alt star"></i>
+              </div>
             </div>
-
-            <!-- Testimonial 3 -->
-            <div class="testimonial-card fade-in" style="animation-delay: 0.6s">
-                <div class="testimonial-header">
-                    <div class="client-image">
-                        <img src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.40.54-PM-75x75.jpeg" alt="Michael Chen">
-                    </div>
-                    <div class="client-info">
-                        <h4>Satwik A Shinde</h4>
-                        <p>Agent Manager</p>
-                        <div class="rating">
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                            <i class="fas fa-star star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    "Outstanding service from start to finish. The solar solution provided for our business has resulted in substantial cost savings. Highly recommend their commercial solar services!"
-                </div>
-                <div class="testimonial-footer">
-                    <span class="review-date">3 months ago</span>
-                    <span class="verification-badge">
-                        <i class="fas fa-check-circle"></i>
-                        Verified Customer
-                    </span>
-                </div>
-            </div>
+          </div>
+          <div class="testimonial-text">
+            "I'm amazed by the difference solar panels have made to my home. The
+            installation team was professional and efficient. The ongoing
+            support has been exceptional!"
+          </div>
+          <div class="testimonial-footer">
+            <span class="review-date">1 month ago</span>
+            <span class="verification-badge">
+              <i class="fas fa-check-circle"></i>
+              Verified Customer
+            </span>
+          </div>
         </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card fade-in" style="animation-delay: 0.6s">
+          <div class="testimonial-header">
+            <div class="client-image">
+              <img
+                src="https://sindiatroop.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-23-at-7.40.54-PM-75x75.jpeg"
+                alt="Michael Chen"
+              />
+            </div>
+            <div class="client-info">
+              <h4>Satwik A Shinde</h4>
+              <p>Agent Manager</p>
+              <div class="rating">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-text">
+            "Outstanding service from start to finish. The solar solution
+            provided for our business has resulted in substantial cost savings.
+            Highly recommend their commercial solar services!"
+          </div>
+          <div class="testimonial-footer">
+            <span class="review-date">3 months ago</span>
+            <span class="verification-badge">
+              <i class="fas fa-check-circle"></i>
+              Verified Customer
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
-    
 
-   
     <!-- Footer Section -->
     <footer class="footer-section">
-        <div class="footer-wave"></div>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>About SIndiaTroop</h3>
-                    <p>Sindiatroop is a leading provider of sustainable energy solutions, dedicated to powering a cleaner, greener future. With over 15 years of experience, we deliver innovative solar solutions for homes and businesses.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="contactnew.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-services">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="services.html"><i class="fas fa-solar-panel"></i> Solar Miniatures</a></li>
-                        <li><a href="services.html"><i class="fas fa-building"></i> Solar Accessories</a></li>
-                        <li><a href="services.html"><i class="fas fa-battery-full"></i> UPS System</a></li>
-                        <li><a href="services.html"><i class="fas fa-tools"></i> AMC Services</a></li>
-                        <li><a href="services.html"><i class="fas fa-chart-line"></i> All Types Of Batteries</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact">
-                    <h3>Contact Info</h3>
-                    <div class="footer-contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-text">
-                              RH-4, SN159121/1B, OPP Samarth Temple, 
-                              <br>Sfurti Chowk, Vishrambag, Sangli
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-text">
-                              +91 903-904-5757
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-text">
-                              sindiyatroop@gmail.com
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-newsletter">
-                        <h3>Newsletter</h3>
-                        <form class="newsletter-form">
-                            <input type="email" class="newsletter-input" placeholder="Enter your email">
-                            <button type="submit" class="newsletter-button">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+      <div class="footer-wave"></div>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3>About SIndiaTroop</h3>
+            <p>
+              Sindiatroop is a leading provider of sustainable energy solutions,
+              dedicated to powering a cleaner, greener future. With over 15
+              years of experience, we deliver innovative solar solutions for
+              homes and businesses.
+            </p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
+          </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2024 Sindiatroop Solutions. All Rights Reserved.</p>
-                <p>Designed with <i class="fas fa-heart" style="color: #566be5"></i> by RD Development Team</p>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="index.html"
+                  ><i class="fas fa-chevron-right"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="aboutus.html"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-chevron-right"></i> Services</a
+                >
+              </li>
+              <li>
+                <a href="contactnew.html"
+                  ><i class="fas fa-chevron-right"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-services">
+            <h3>Our Services</h3>
+            <ul>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-solar-panel"></i> Solar Miniatures</a
+                >
+              </li>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-building"></i> Solar Accessories</a
+                >
+              </li>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-battery-full"></i> UPS System</a
+                >
+              </li>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-tools"></i> AMC Services</a
+                >
+              </li>
+              <li>
+                <a href="services.html"
+                  ><i class="fas fa-chart-line"></i> All Types Of Batteries</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>Contact Info</h3>
+            <div class="footer-contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-text">
+                  RH-4, SN159121/1B, OPP Samarth Temple,
+                  <br />Sfurti Chowk, Vishrambag, Sangli
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div class="contact-text">+91 903-904-5757</div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-text">sindiyatroop@gmail.com</div>
+              </div>
             </div>
+            <div class="footer-newsletter">
+              <h3>Newsletter</h3>
+              <form class="newsletter-form">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Enter your email"
+                />
+                <button type="submit" class="newsletter-button">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Sindiatroop Solutions. All Rights Reserved.</p>
+          <p>
+            Designed with <i class="fas fa-heart" style="color: #566be5"></i> by
+            RD Development Team
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Reveal on scroll
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
         }
+      });
 
-        // Trigger reveal on page load
-        reveal();
+      // Reveal on scroll
+      window.addEventListener("scroll", reveal);
+
+      function reveal() {
+        const reveals = document.querySelectorAll(".reveal");
+
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500);
+      });
+
+      // Trigger reveal on page load
+      reveal();
+
+
+      // Loading Screen
+         // Create circuit lines
+         function createCircuitLines() {
+        const container = document.getElementById('circuitLines');
+        const lineCount = 20;
+
+        for (let i = 0; i < lineCount; i++) {
+            const line = document.createElement('div');
+            line.className = 'circuit-line';
+            
+            const isHorizontal = Math.random() > 0.5;
+            const size = Math.random() * 100 + 50;
+            
+            line.style.width = isHorizontal ? `${size}px` : '2px';
+            line.style.height = isHorizontal ? '2px' : `${size}px`;
+            line.style.left = `${Math.random() * 100}%`;
+            line.style.top = `${Math.random() * 100}%`;
+            line.style.animationDelay = `${Math.random() * 3}s`;
+            
+            container.appendChild(line);
+        }
+    }
+
+    const tips = [
+        "🌞 Powering homes with clean solar energy",
+        "⚡ Smart energy solutions for modern living",
+        "🔋 Leading innovation in sustainable tech",
+        "💡 Creating a brighter, cleaner future",
+        "🌱 Sustainable electronics for tomorrow",
+        "⚡ Expert solar solutions by Prozan",
+        "🔋 Renewable energy for a better world"
+    ];
+
+    function updateProgressText(percentage) {
+        const progressText = document.querySelector('.progress-text');
+        progressText.textContent = `Loading... ${percentage}%`;
+    }
+
+    function showRandomTip() {
+        const tipElement = document.getElementById('loadingTip');
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        tipElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            tipElement.textContent = randomTip;
+            tipElement.style.opacity = '1';
+        }, 500);
+    }
+
+    createCircuitLines();
+    showRandomTip();
+    setInterval(showRandomTip, 3000);
+
+    // Progress text animation
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += 1;
+        updateProgressText(Math.min(progress, 100));
+        if (progress >= 100) clearInterval(progressInterval);
+    }, 45);
+
+    // Extended loading time to 4.5 seconds
+    setTimeout(() => {
+        const loader = document.querySelector('.loader-container');
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 1s ease-out';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 1000);
+    }, 4500);
     </script>
-</body>
+  </body>
 </html>
