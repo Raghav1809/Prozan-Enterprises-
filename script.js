@@ -8,15 +8,6 @@
     }
 });
 
-window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-        preloader.style.display = 'none';
-    }, 500);
-});
-
-
 // Reveal on scroll
 window.addEventListener('scroll', reveal);
 
@@ -48,7 +39,6 @@ reveal();
     });
 
     // Smooth Scroll
-    const navbar = document.querySelector('.navbar');
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -149,6 +139,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     createParticles();
-    
-
-   

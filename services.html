@@ -11,30 +11,6 @@
     <link rel="stylesheet" href="servicesstyle.css">
 </head>
 <body>
-    <!-- Loading screen -->
-    <div class="loader-container">
-        <div class="circuit-lines" id="circuitLines"></div>
-        <div class="power-icon"></div>
-        
-        <div class="solar-panel">
-            <div class="solar-cell"></div>
-            <div class="solar-cell"></div>
-            <div class="solar-cell"></div>
-            <div class="solar-cell"></div>
-        </div>
-
-        <div class="company-name">Prozan Enterprises</div>
-        <div class="tagline">Powering Tomorrow's Sustainable Future</div>
-        
-        <div class="progress-wrapper">
-            <div class="progress-text">Loading...</div>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-        </div>
-
-        <div class="loading-tip" id="loadingTip"></div>
-    </div>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
@@ -489,77 +465,6 @@
 
         // Trigger reveal on page load
         reveal();
-
-         // Loading Screen
-         // Create circuit lines
-         function createCircuitLines() {
-        const container = document.getElementById('circuitLines');
-        const lineCount = 20;
-
-        for (let i = 0; i < lineCount; i++) {
-            const line = document.createElement('div');
-            line.className = 'circuit-line';
-            
-            const isHorizontal = Math.random() > 0.5;
-            const size = Math.random() * 100 + 50;
-            
-            line.style.width = isHorizontal ? `${size}px` : '2px';
-            line.style.height = isHorizontal ? '2px' : `${size}px`;
-            line.style.left = `${Math.random() * 100}%`;
-            line.style.top = `${Math.random() * 100}%`;
-            line.style.animationDelay = `${Math.random() * 3}s`;
-            
-            container.appendChild(line);
-        }
-    }
-
-    const tips = [
-        "🌞 Powering homes with clean solar energy",
-        "⚡ Smart energy solutions for modern living",
-        "🔋 Leading innovation in sustainable tech",
-        "💡 Creating a brighter, cleaner future",
-        "🌱 Sustainable electronics for tomorrow",
-        "⚡ Expert solar solutions by Prozan",
-        "🔋 Renewable energy for a better world"
-    ];
-
-    function updateProgressText(percentage) {
-        const progressText = document.querySelector('.progress-text');
-        progressText.textContent = `Loading... ${percentage}%`;
-    }
-
-    function showRandomTip() {
-        const tipElement = document.getElementById('loadingTip');
-        const randomTip = tips[Math.floor(Math.random() * tips.length)];
-        tipElement.style.opacity = '0';
-        
-        setTimeout(() => {
-            tipElement.textContent = randomTip;
-            tipElement.style.opacity = '1';
-        }, 500);
-    }
-
-    createCircuitLines();
-    showRandomTip();
-    setInterval(showRandomTip, 3000);
-
-    // Progress text animation
-    let progress = 0;
-    const progressInterval = setInterval(() => {
-        progress += 1;
-        updateProgressText(Math.min(progress, 100));
-        if (progress >= 100) clearInterval(progressInterval);
-    }, 45);
-
-    // Extended loading time to 4.5 seconds
-    setTimeout(() => {
-        const loader = document.querySelector('.loader-container');
-        loader.style.opacity = '0';
-        loader.style.transition = 'opacity 1s ease-out';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 1000);
-    }, 4500);
     </script>
 </body>
 </html>
