@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="servicesstyle.css">
 </head>
+
 <body>
+    <!-- Loading screen -->
+    <div class="loader-container">
+        <div class="circuit-lines" id="circuitLines"></div>
+        <div class="power-icon"></div>
+
+        <div class="solar-panel">
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+        </div>
+
+        <div class="company-name">Prozan Enterprises</div>
+        <div class="tagline">Powering Tomorrow's Sustainable Future</div>
+
+        <div class="progress-wrapper">
+            <div class="progress-text">Loading...</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-tip" id="loadingTip"></div>
+    </div>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 animate__animated animate__fadeInLeft">
-                    <a href="tel:+91 903-904-5757" style="color: #ffffff;text-decoration: none;">Call to : +91 903-904-5757</a>
+                    <a href="tel:+91 903-904-5757" style="color: #ffffff;text-decoration: none;">Call to : +91
+                        903-904-5757</a>
                 </div>
                 <div class="col-md-6 text-end animate__animated animate__fadeInRight">
-                    <a href="mailto:sindiyatroop@gmail.com" style="color: #ffffff; text-decoration: none;">Mail to : sindiyatroop@gmail.com</a>
+                    <a href="mailto:sindiyatroop@gmail.com" style="color: #ffffff; text-decoration: none;">Mail to :
+                        sindiyatroop@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -75,16 +104,18 @@
     <!-- Services Section -->
     <div class="container my-5">
         <div class="row">
-             <!-- Service Card 1 -->
-             <div class="col-md-4 reveal">
+            <!-- Service Card 1 -->
+            <div class="col-md-4 reveal">
                 <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/71huJbSZOvL._AC_UF10001000_QL80_-600x361.jpg" class="card-img-top" alt="Solar Mini Home Light System">
+                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/71huJbSZOvL._AC_UF10001000_QL80_-600x361.jpg"
+                        class="card-img-top" alt="Solar Mini Home Light System">
                     <div class="card-body">
                         <div class="icon-box floating">
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <h5 class="card-title">SOLAR MINI HOME LIGHT SYSTEM</h5>
-                        <p class="card-text">Efficient and reliable solar-powered lighting solutions for residential applications, perfect for sustainable home energy management.</p>
+                        <p class="card-text">Efficient and reliable solar-powered lighting solutions for residential
+                            applications, perfect for sustainable home energy management.</p>
                     </div>
                 </div>
             </div>
@@ -92,13 +123,15 @@
             <!-- Service Card 2 -->
             <div class="col-md-4 reveal">
                 <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/Off-Grid-600x361.png" class="card-img-top" alt="Solar Off Grid System">
+                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/Off-Grid-600x361.png"
+                        class="card-img-top" alt="Solar Off Grid System">
                     <div class="card-body">
                         <div class="icon-box floating">
                             <i class="fas fa-solar-panel"></i>
                         </div>
                         <h5 class="card-title">SOLAR OFF GRID SYSTEM – DOMESTIC AND INDUSTRIAL</h5>
-                        <p class="card-text">Complete off-grid solar solutions for both residential and industrial applications, ensuring energy independence.</p>
+                        <p class="card-text">Complete off-grid solar solutions for both residential and industrial
+                            applications, ensuring energy independence.</p>
                     </div>
                 </div>
             </div>
@@ -106,13 +139,15 @@
             <!-- Service Card 3 -->
             <div class="col-md-4 reveal">
                 <div class="card services-card">
-                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/IMG_3867-600x361.jpeg" class="card-img-top" alt="Solar Lift UPS">
+                    <img src="https://sindiatroop.com/wp-content/uploads/2020/10/IMG_3867-600x361.jpeg"
+                        class="card-img-top" alt="Solar Lift UPS">
                     <div class="card-body">
                         <div class="icon-box floating">
                             <i class="fas fa-battery-full"></i>
                         </div>
                         <h5 class="card-title">SOLAR LIFT UPS BACK UP WITH LITHIUM BATTERY</h5>
-                        <p class="card-text">Advanced lithium battery backup systems for elevators and critical applications, providing reliable power supply.</p>
+                        <p class="card-text">Advanced lithium battery backup systems for elevators and critical
+                            applications, providing reliable power supply.</p>
                     </div>
                 </div>
             </div>
@@ -122,21 +157,24 @@
     <!-- Services Card Section -->
     <div class="container">
         <h1 class="heading">SOLAR MINIATURES</h1>
-        
+
         <div class="row">
             <!-- Solar Fountains -->
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://m.media-amazon.com/images/I/81KBe-OUwHL.jpg" alt="Solar Fountain" class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/81KBe-OUwHL.jpg" alt="Solar Fountain"
+                            class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">SOLAR FOUNTAINS</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            Solar fountains use solar panels to power water pumps, creating decorative water features.
+                            They operate during sunny days, providing a sustainable, low-maintenance way to enhance
+                            gardens and outdoor spaces.
                         </p>
                     </div>
                 </div>
@@ -146,12 +184,15 @@
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://m.media-amazon.com/images/I/711TUai-iXL._AC_UF1000,1000_QL80_.jpg" alt="Solar Flood Light" class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/711TUai-iXL._AC_UF1000,1000_QL80_.jpg"
+                            alt="Solar Flood Light" class="product-image">
                     </div>
                     <div class="product-content">
                         <h2 class="product-title">SOLAR FLOOD LIGHT</h2>
                         <p class="product-description">
-                            A solar flood light uses solar panels to charge batteries, powering bright LED lights for outdoor illumination. It offers high-intensity lighting for security and area lighting without wiring or electricity costs.
+                            A solar flood light uses solar panels to charge batteries, powering bright LED lights for
+                            outdoor illumination. It offers high-intensity lighting for security and area lighting
+                            without wiring or electricity costs.
                         </p>
                     </div>
                 </div>
@@ -161,52 +202,170 @@
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/ID/LC/WA/115943084/solar-garden-mashal-light-500x500.jpg" alt="Solar Mashal" class="product-image">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/ID/LC/WA/115943084/solar-garden-mashal-light-500x500.jpg"
+                            alt="Solar Mashal" class="product-image">
                     </div>
                     <div class="product-content">
                         <h2 class="product-title">SOLAR MASHAL</h2>
                         <p class="product-description">
-                            A solar mashal is a portable, solar-powered torch or lamp. It uses solar panels to charge batteries, providing bright, efficient lighting for outdoor activities or emergency situations with minimal maintenance.
+                            A solar mashal is a portable, solar-powered torch or lamp. It uses solar panels to charge
+                            batteries, providing bright, efficient lighting for outdoor activities or emergency
+                            situations with minimal maintenance.
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOLAR STRING LIGHT -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://m.media-amazon.com/images/I/71VOmyQRn0L.jpg" alt="SOLAR STRING LIGHT"
+                            class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <h2 class="product-title">SOLAR STRING LIGHT</h2>
+                        <p class="product-description">
+                            A solar string light uses solar panels to charge batteries during the day, powering LED
+                            lights that illuminate at night. It’s ideal for outdoor decoration and energy-efficient
+                            lighting with minimal wiring. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- SOLAR STREET LIGHTS -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://m.media-amazon.com/images/I/61jgEBqUGDL._AC_UF1000,1000_QL80_.jpg"
+                            alt="SOLAR STREET LIGHTS" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <h2 class="product-title">SOLAR STREET LIGHTS</h2>
+                        <p class="product-description">
+                            Solar street lights use solar panels to charge batteries during the day, powering LED lights
+                            at night. They provide sustainable, off-grid illumination for roads and public spaces,
+                            reducing energy costs and emissions. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- SOLAR LUMINARY -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYx-j-0QoDArfPmcUh2Ry-RIo9X4ev86SqjQ&s.jpg"
+                            alt="SOLAR LUMINARY" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <h2 class="product-title">SOLAR LUMINARY</h2>
+                        <p class="product-description">
+                            A solar luminary is an outdoor lighting fixture powered by solar panels. It charges during
+                            the day and provides illumination at night, offering energy-efficient, decorative lighting
+                            with minimal maintenance. </p>
                     </div>
                 </div>
             </div>
         </div>
 
         <h1 class="heading">SOLAR ACCESSORIES</h1>
-        
+
         <div class="row">
             <!-- ACDB/DCDB -->
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://m.media-amazon.com/images/I/71AnUwgGMpL._SX425_.jpg" alt="ACDB/DCDB" class="product-image">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/4/UB/PH/EQ/33415458/img-20210602-123021-01-500x500.jpg"
+                            alt="ACDB/DCDB" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">ACDB/DCDB</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            Solar fountains use solar panels to power water pumps, creating decorative water features.
+                            They operate during sunny days, providing a sustainable, low-maintenance way to enhance
+                            gardens and outdoor spaces.
                         </p>
                     </div>
                 </div>
             </div>
 
-             <!-- Earthing Kit -->
-             <div class="col-md-4">
+            <!-- LIGHTENING ARRAY -->
+            <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://5.imimg.com/data5/ANDROID/Default/2024/11/469355579/WT/PM/QQ/160632262/product-jpeg-500x500.jpg" alt="Earthing Kit" class="product-image">
+                        <img src="https://www.lightningprotection.com/wp-content/uploads/2017/04/DAS_image_4.jpg"
+                            alt="LIGHTENING ARRAY" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
-                        <h2 class="product-title">EARTHING KIT</h2>
+                        <h2 class="product-title">LIGHTENING ARRAY</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            A lightning array is a system of interconnected lightning protection devices designed to
+                            intercept and safely dissipate lightning strikes, protecting structures from electrical
+                            damage and ensuring safety during storms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- STRUCTURES -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <!-- Insert the image below in src -->
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2020/12/VN/ZQ/PJ/15021236/pole-mount-solar-structure.jpg"
+                            alt="STRUCTURES" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <!-- Change the name in h2 -->
+                        <h2 class="product-title">STRUCTURES</h2>
+                        <p class="product-description">
+                            <!-- give descriptive info in below -->
+                            Structures are built systems or frameworks that support and enclose spaces, including
+                            buildings, bridges, and towers. They are designed to bear loads, withstand environmental
+                            forces, and ensure stability and safety.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- RAILINGS -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <!-- Insert the image below in src -->
+                        <img src="https://www.alumexstore.com/wp-content/uploads/2022/09/Mounting-rail-alus58..png"
+                            alt="RAILINGS" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <!-- Change the name in h2 -->
+                        <h2 class="product-title">RAILINGS</h2>
+                        <p class="product-description">
+                            <!-- give descriptive info in below -->
+                            Railings are barriers or guardrails installed along staircases, balconies, or walkways to
+                            prevent falls and ensure safety. They can be made from materials like metal, wood, or glass
+                            for durability and aesthetics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- METERS -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <!-- Insert the image below in src -->
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/VN/MR/QM/101027247/net-meter-solar-meter-bidirectional-meter-three-phase.jpg"
+                            alt="METERS" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <!-- Change the name in h2 -->
+                        <h2 class="product-title">METERS</h2>
+                        <p class="product-description">
+                            <!-- give descriptive info in below -->
+                            Meters are devices used to measure various quantities such as electricity, water, and gas
+                            consumption. They provide data for billing and monitoring, ensuring accurate measurement and
+                            efficient resource management.
                         </p>
                     </div>
                 </div>
@@ -214,39 +373,41 @@
         </div>
 
         <h1 class="heading">UPS SYSTEM</h1>
-        
+
         <div class="row">
             <!-- ONLINE UPS -->
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://t3.ftcdn.net/jpg/01/93/25/66/240_F_193256617_pEMXRbykbP6JzshZl5QiS5LxHhOZmD7R.jpg" alt="ONLINE UPS" class="product-image">
+                        <img src="https://enertechups.com/wp-content/uploads/2021/06/primary.webp" alt="ONLINE UPS"
+                            class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">ONLINE UPS</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            MAKE MICROTEK,UTL,ELNOV
                         </p>
                     </div>
                 </div>
             </div>
 
-             <!-- Offline UPS -->
-             <div class="col-md-4">
+            <!-- Offline UPS -->
+            <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://5.imimg.com/data5/NP/GU/LF/SELLER-28296802/offline-ups-500x500.jpg" alt="Offline UPS" class="product-image">
+                        <img src="https://4.imimg.com/data4/DW/DM/MY-2979966/solar-offline-ups-system-500x500.jpg"
+                            alt="Offline UPS" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">OFFLINE UPS</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            MAKE MICROTEK, UTL, LIV FAST, LUMINOUS
                         </p>
                     </div>
                 </div>
@@ -254,97 +415,192 @@
         </div>
 
         <h1 class="heading">AMC SERVICES</h1>
-        
+
         <div class="row">
             <!-- SOLAR SYSTEM -->
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://images.squarespace-cdn.com/content/v1/5ea2eb4be710ac685db45b46/91f2c553-5fe2-4c16-80d3-8875b17f9f98/IMG_8403.jpg" alt="SOLAR SYSTEM" class="product-image">
+                        <img src="https://i0.wp.com/eepowerschool.com/wp-content/uploads/2018/09/Solar-Photovoltaic-panel.jpg?fit=1600%2C1062&ssl=1"
+                            alt="SOLAR SYSTEM" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">SOLAR SYSTEM</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            A solar system converts sunlight into electricity using photovoltaic panels, supported by
+                            inverters, batteries, and controllers, providing renewable, cost-effective energy for homes
+                            and businesses, reducing reliance on fossil fuels.
                         </p>
                     </div>
                 </div>
             </div>
-
-             <!-- LIFT BACKUP SYSTEM -->
-             <div class="col-md-4">
+            <!-- ONLINE SYSTEM -->
+            <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/469541223/CH/MP/CD/196410047/elevator-inverter-500x500.jpg" alt="LIFT BACKUP SYSTEM" class="product-image">
+                        <img src="https://5.imimg.com/data5/ANDROID/Default/2024/2/383339001/DU/EI/HT/43697233/product-jpeg-500x500.jpeg"
+                            alt="ONLINE SYSTEM" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <!-- Change the name in h2 -->
+                        <h2 class="product-title">ONLINE SYSTEM</h2>
+                        <p class="product-description">
+                            <!-- give descriptive info in below -->
+                            An online solar system integrates photovoltaic panels with the grid, using inverters and
+                            smart controllers to provide renewable energy, reduce electricity bills, and allow excess
+                            power to be sold back to the grid.
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIFT BACKUP SYSTEM -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <!-- Insert the image below in src -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPq91vN7lYzpt2rxFkJGD52upcxSy_tPg-Ew&s"
+                            alt="LIFT BACKUP SYSTEM" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
                         <h2 class="product-title">LIFT BACKUP SYSTEM</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
+                            A lift backup system ensures continuous elevator operation during power outages, using
+                            batteries or generators to provide emergency power, enhancing safety and reliability in
+                            residential and commercial buildings.
                         </p>
                     </div>
                 </div>
             </div>
 
-        <h1 class="heading">ALL TYPES OF BATTERIES</h1>
+            <h1 class="heading">ALL TYPES OF BATTERIES</h1>
+
+            <div class="row">
+                <!-- UPS BATTERY -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <!-- Insert the image below in src -->
+                            <img src="https://www.gnbsystems.com/images/genesis-np.jpg" alt="UPS BATTERY"
+                                class="product-image">
+                        </div>
+                        <div class="product-content">
+                            <!-- Change the name in h2 -->
+                            <h2 class="product-title">UPS BATTERY</h2>
+                            <p class="product-description">
+                                <!-- give descriptive info in below -->
+                                A UPS battery provides backup power during outages, ensuring uninterrupted operation of
+                                electronic devices and critical systems, commonly using lead-acid or lithium-ion
+                                technology for reliability and efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOLAR BATTERY -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <!-- Insert the image below in src -->
+                            <img src="https://www.inverter.com/images/uploaded/ups-inverter-solar-battery.jpg"
+                                alt="SOLAR BATTERY" class="product-image">
+                        </div>
+                        <div class="product-content">
+                            <!-- Change the name in h2 -->
+                            <h2 class="product-title">SOLAR BATTERY</h2>
+                            <p class="product-description">
+                                <!-- give descriptive info in below -->
+                                A solar battery stores energy generated by solar panels, enabling power usage during
+                                non-sunny periods, increasing energy independence, and optimizing solar system
+                                efficiency by providing reliable backup and load shifting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SMF BATTERY -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <!-- Insert the image below in src -->
+                            <img src="https://i0.wp.com/www.upsinverter.com/wp-content/uploads/2020/06/381.jpg?fit=600%2C600&ssl=1"
+                                alt="SMF BATTERY" class="product-image">
+                        </div>
+                        <div class="product-content">
+                            <!-- Change the name in h2 -->
+                            <h2 class="product-title">SMF BATTERY</h2>
+                            <p class="product-description">
+                                <!-- give descriptive info in below -->
+                                An SMF (Sealed Maintenance-Free) battery is a type of lead-acid battery with a sealed
+                                design, requiring no water addition, offering reliable, maintenance-free power storage
+                                for various applications like UPS and solar systems.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LITHIUM BATTERY -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <!-- Insert the image below in src -->
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2021/5/NZ/XU/MW/708027/lithium-ion-battery-for-car.jpg"
+                                alt="LITHIUM BATTERY" class="product-image">
+                        </div>
+                        <div class="product-content">
+                            <!-- Change the name in h2 -->
+                            <h2 class="product-title">LITHIUM BATTERY</h2>
+                            <p class="product-description">
+                                <!-- give descriptive info in below -->
+                                A lithium battery is a rechargeable energy storage device known for high energy density,
+                                long lifespan, and fast charging, commonly used in electronics, electric vehicles, and
+                                renewable energy systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="heading">SERVICES</h1>
         
         <div class="row">
-            <!-- UPS BATTERY -->
+            <!-- CONSULTATION FOR SOLAR INSTALLATION AND COMMISSIONING LAYOUT -->
             <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/OS/TA/CN/91698785/geethanjali-associates-ups-battery.jpg" alt="UPS BATTERY" class="product-image">
+                        <img src="https://localsolar.io/assets/images/solar-panels.jpg" alt="CONSULTATION FOR SOLAR INSTALLATION AND COMMISSIONING LAYOUT" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
-                        <h2 class="product-title">UPS BATTERY</h2>
+                        <h2 class="product-title">CONSULTATION FOR SOLAR INSTALLATION AND COMMISSIONING LAYOUT</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
-                        </p>
+                            <b>Site Assessment and Feasibility Study:</b> Evaluate the site for solar potential, shading, structural integrity, and electrical requirements to determine the system’s viability and optimal placement.
+<br><b>System Design and Sizing:</b><br> Develop a detailed layout, selecting appropriate components and sizing the system to meet the energy needs and site conditions.
+<br><b>Permitting and Regulatory Compliance:</b> Obtain necessary permits, adhere to local codes and standards, and ensure all documentation is in place for smooth installation and commissioning.                        </p>
                     </div>
                 </div>
             </div>
 
-             <!-- SOLAR BATTERY -->
+             <!-- CONSUMER SOLAR AWAIR NESS – TO GUID CUSTOMER FOR SOLAR INSTALLATION WITH PROCESS -->
              <div class="col-md-4">
                 <div class="product-card">
                     <div class="product-image-container">
                         <!-- Insert the image below in src -->
-                        <img src="https://5.imimg.com/data5/DC/VS/MY-64895474/solar-panel-battery.jpg" alt="SOLAR BATTERY" class="product-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTn__Qp39mcPv1ZaP5-WJ6vNcvlovqWZcXlQ&s" alt="CONSUMER SOLAR AWAIR NESS – TO GUID CUSTOMER FOR SOLAR INSTALLATION WITH PROCESS" class="product-image">
                     </div>
                     <div class="product-content">
                         <!-- Change the name in h2 -->
-                        <h2 class="product-title">SOLAR BATTERY</h2>
+                        <h2 class="product-title">CONSUMER SOLAR AWAIR NESS – TO GUID CUSTOMER FOR SOLAR INSTALLATION WITH PROCESS</h2>
                         <p class="product-description">
                             <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- LITHIUM BATTERY -->
-            <div class="col-md-4">
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <!-- Insert the image below in src -->
-                        <img src="https://m.media-amazon.com/images/I/61VtzZdaHiL._AC_SY355_.jpg" alt="LITHIUM BATTERY" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <!-- Change the name in h2 -->
-                        <h2 class="product-title">LITHIUM BATTERY</h2>
-                        <p class="product-description">
-                            <!-- give descriptive info in below -->
-                            Solar fountains use solar panels to power water pumps, creating decorative water features. They operate during sunny days, providing a sustainable, low-maintenance way to enhance gardens and outdoor spaces.
-                        </p>
+                            <b>Benefits and Incentives:</b><br> Educate on cost savings, energy independence, and environmental impact, highlighting available incentives and rebates.
+<br><b>Site Assessment and Custom Design:</b> Assess site for solar potential, discuss energy needs, and design a tailored solar solution.
+<br><b>Installation and Maintenance:</b><br> Explain the installation process, necessary permits, and long-term maintenance for optimal performance and reliability.                        </p>
                     </div>
                 </div>
             </div>
@@ -354,14 +610,16 @@
     <br><br><br><br><br>
 
 
-     <!-- Footer Section -->
-     <footer class="footer-section">
+    <!-- Footer Section -->
+    <footer class="footer-section">
         <div class="footer-wave"></div>
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>About SIndiaTroop</h3>
-                    <p>Sindiatroop is a leading provider of sustainable energy solutions, dedicated to powering a cleaner, greener future. With over 15 years of experience, we deliver innovative solar solutions for homes and businesses.</p>
+                    <p>Sindiatroop is a leading provider of sustainable energy solutions, dedicated to powering a
+                        cleaner, greener future. With over 15 years of experience, we deliver innovative solar solutions
+                        for homes and businesses.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -398,20 +656,20 @@
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div class="contact-text">
-                              RH-4, SN159121/1B, OPP Samarth Temple, 
-                              <br>Sfurti Chowk, Vishrambag, Sangli
+                                RH-4, SN159121/1B, OPP Samarth Temple,
+                                <br>Sfurti Chowk, Vishrambag, Sangli
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div class="contact-text">
-                              +91 903-904-5757
+                                +91 903-904-5757
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div class="contact-text">
-                              sindiyatroop@gmail.com
+                                sindiyatroop@gmail.com
                             </div>
                         </div>
                     </div>
@@ -437,7 +695,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -451,12 +709,12 @@
 
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
-            
+
             reveals.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
                 }
@@ -465,6 +723,78 @@
 
         // Trigger reveal on page load
         reveal();
+
+        // Loading Screen
+        // Create circuit lines
+        function createCircuitLines() {
+            const container = document.getElementById('circuitLines');
+            const lineCount = 20;
+
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.className = 'circuit-line';
+
+                const isHorizontal = Math.random() > 0.5;
+                const size = Math.random() * 100 + 50;
+
+                line.style.width = isHorizontal ? `${size}px` : '2px';
+                line.style.height = isHorizontal ? '2px' : `${size}px`;
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+                line.style.animationDelay = `${Math.random() * 3}s`;
+
+                container.appendChild(line);
+            }
+        }
+
+        const tips = [
+            "🌞 Powering homes with clean solar energy",
+            "⚡ Smart energy solutions for modern living",
+            "🔋 Leading innovation in sustainable tech",
+            "💡 Creating a brighter, cleaner future",
+            "🌱 Sustainable electronics for tomorrow",
+            "⚡ Expert solar solutions by Prozan",
+            "🔋 Renewable energy for a better world"
+        ];
+
+        function updateProgressText(percentage) {
+            const progressText = document.querySelector('.progress-text');
+            progressText.textContent = `Loading... ${percentage}%`;
+        }
+
+        function showRandomTip() {
+            const tipElement = document.getElementById('loadingTip');
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            tipElement.style.opacity = '0';
+
+            setTimeout(() => {
+                tipElement.textContent = randomTip;
+                tipElement.style.opacity = '1';
+            }, 500);
+        }
+
+        createCircuitLines();
+        showRandomTip();
+        setInterval(showRandomTip, 3000);
+
+        // Progress text animation
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+            progress += 1;
+            updateProgressText(Math.min(progress, 100));
+            if (progress >= 100) clearInterval(progressInterval);
+        }, 45);
+
+        // Extended loading time to 4.5 seconds
+        setTimeout(() => {
+            const loader = document.querySelector('.loader-container');
+            loader.style.opacity = '0';
+            loader.style.transition = 'opacity 1s ease-out';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000);
+        }, 4500);
     </script>
 </body>
+
 </html>

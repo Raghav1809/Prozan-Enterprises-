@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us - Prozan</title>
     <link rel="shortcut icon" href="Images/Prozan_Logo-removebg-preview(1).png" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -42,10 +41,10 @@
                     <a class="nav-link animate__animated animate__fadeIn" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active animate__animated animate__fadeIn" href="services.html">Services</a>
+                    <a class="nav-link animate__animated animate__fadeIn" href="services.html">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link animate__animated animate__fadeIn" href="aboutus.html">About us</a>
+                    <a class="nav-link active animate__animated animate__fadeIn" href="aboutus.html">About us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link animate__animated animate__fadeIn" href="contactnew.html">Contact</a>
@@ -182,15 +181,6 @@
 
 <!-- Stats Section -->
 <section class="stats-section">
-    <div class="stats-bg-overlay"></div>
-    <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
     <div class="container">
         <div class="stats-header text-center mb-5">
             <h2 class="section-title text-white">Our Impact in Numbers</h2>
@@ -205,7 +195,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="500">0</div>
+                            <div class="stat-number" data-count="256">0</div>
                             <h3 class="stat-label">Happy Clients</h3>
                         </div>
                         <div class="stat-decoration">
@@ -223,7 +213,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-number" data-count="89">0</div>
                             <h3 class="stat-label">Solar Installations</h3>
                         </div>
                         <div class="stat-decoration">
@@ -241,7 +231,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-number" data-count="35">0</div>
                             <h3 class="stat-label">Expert Team</h3>
                         </div>
                         <div class="stat-decoration">
@@ -259,7 +249,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-number" data-count="7">0</div>
                             <h3 class="stat-label">Years Experience</h3>
                         </div>
                         <div class="stat-decoration">
@@ -363,30 +353,6 @@
         once: true
     });
 
-    // Smooth scroll functionality
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Add scroll animation for navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow');
-        } else {
-            navbar.classList.remove('shadow');
-        }
-    });
-
-    AOS.init({
-            duration: 1000,
-            once: true
-        });
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
@@ -397,52 +363,6 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // Stats Counter Animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-count'));
-                let count = 0;
-                const duration = 2000;
-                const increment = target / (duration / 16);
-
-                const timer = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        stat.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.floor(count);
-                    }
-                }, 16);
-            });
-        }
-
-        // Intersection Observer for Stats
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        
-        observer.observe(document.querySelector('.stats-section'));
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-</script>
-
-<script>
 // Counter Animation
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-count'));

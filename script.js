@@ -6,7 +6,6 @@
     } else {
         navbar.classList.remove('scrolled');
     }
-});
 
 // Reveal on scroll
 window.addEventListener('scroll', reveal);
@@ -77,65 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     });
 
-   
-    const track = document.querySelector(".carousel-track");
-    const slides = Array.from(track.children);
-    const prevButton = document.querySelector(".prev-btn");
-    const nextButton = document.querySelector(".next-btn");
-    const dotsNav = document.querySelector(".dots-container");
-    const dots = Array.from(dotsNav.children);
-    
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    
-    // Arrange slides next to each other
-    slides.forEach((slide, index) => {
-        slide.style.left = slideWidth * index + "px";
-    });
-    
-    let currentSlideIndex = 0;
-    
-    // Move to specific slide
-    function moveToSlide(index) {
-        track.style.transform = `translateX(-${index * slideWidth}px)`;
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[index].classList.add("active");
-        currentSlideIndex = index;
-    }
-    
-    // Previous Button
-    prevButton.addEventListener("click", () => {
-        const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-        moveToSlide(prevIndex);
-    });
-    
-    // Next Button
-    nextButton.addEventListener("click", () => {
-        const nextIndex = (currentSlideIndex + 1) % slides.length;
-        moveToSlide(nextIndex);
-    });
-    
-    // Dots Navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => moveToSlide(index));
-    });
-    
-    // Initialize
-    moveToSlide(currentSlideIndex);
-    
-    
-    function createParticles() {
-        const container = document.getElementById('particles');
-        for(let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.width = Math.random() * 5 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.setProperty('--moveX', (Math.random() * 200 - 100) + 'px');
-            particle.style.setProperty('--moveY', (Math.random() * 200 - 100) + 'px');
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            container.appendChild(particle);
-        }
-    }
-    createParticles();
+ 

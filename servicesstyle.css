@@ -24,77 +24,81 @@
             font-size: 14px;
         }
         
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
+        
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
 
-        .navbar.scrolled {
-            padding: 5px 0;
-            background-color: rgba(255, 255, 255, 0.98);
-        }
+.navbar.scrolled {
+    padding: 5px 0;
+    background-color: rgba(255, 255, 255, 0.98);
+}
 
-        .navbar-brand img {
-            width: 60px;
-            transition: transform 0.3s ease;
-        }
+.navbar-brand img {
+    width: 60px;
+    transition: transform 0.3s ease;
+}
 
-        .navbar-brand:hover img {
-            transform: scale(1.05);
-        }
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
 
-        .nav-link {
-            position: relative;
-            padding: 8px 15px !important;
-            margin: 0 5px;
-            transition: color 0.3s ease;
-        }
+.nav-link {
+    position: relative;
+    padding: 8px 15px !important;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+.nav-link:hover::after {
+    width: 100%;
+}
 
-        .search-box {
-            border-radius: 25px;
-            border: 2px solid transparent;
-            padding-right: 40px;
-            transition: all 0.3s ease;
-            background: rgba(13, 110, 253, 0.05);
-        }
+.search-box {
+    border-radius: 25px;
+    border: 2px solid transparent;
+    padding-right: 40px;
+    transition: all 0.3s ease;
+    background: rgba(13, 110, 253, 0.05);
+}
 
-        .search-box:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 15px rgba(13, 110, 253, 0.2);
-        }
+.search-box:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.2);
+}
 
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            transition: transform 0.3s ease;
-        }
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
 
-        .search-btn:hover {
-            transform: translateY(-50%) scale(1.1);
-        }
+.search-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+        /* Hero Section */
 
         .hero-section {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Images/solar-panels-pink-sky.jpg');

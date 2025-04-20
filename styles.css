@@ -418,6 +418,88 @@
     transform: scale(1.1);
 }
 
+/* Why choose us section */
+.why-choose-us {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card {
+    background: rgba(13, 110, 253, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    height: 100%;
+    border-bottom: 3px solid transparent;
+    transform: translateY(0);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(13, 110, 253, 0.9);
+    border-bottom: 3px solid #00E5FF;
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.3);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid #00E5FF;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .icon-circle {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.btn-glow {
+    background: linear-gradient(45deg, #0d6efd, #00E5FF);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-glow:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00E5FF, #0d6efd);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.btn-glow:hover:before {
+    opacity: 1;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .feature-card {
+        margin-bottom: 20px;
+    }
+}
+
 /* Services Section */
 .services-card {
     border: none;

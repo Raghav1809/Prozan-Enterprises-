@@ -54,3 +54,53 @@ const saveMessage = (name, email, phone, service, message) => {
 const getElementVal = (id) => {
     return document.getElementById(id).value;
 };
+
+
+// Contact Form Validation
+document.getElementById("submit").addEventListener("click", function (e) {
+    e.preventDefault();
+  
+    // Input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+  
+    // Validation flags
+    let isValid = true;
+    let errorMessage = "";
+  
+    // Name validation
+    if (name === "") {
+      isValid = false;
+      errorMessage += "Please enter your name.\n";
+    }
+  
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      isValid = false;
+      errorMessage += "Please enter a valid email address.\n";
+    }
+  
+    // Phone validation (10-digit number)
+   const phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone)) {
+      isValid = false;
+      errorMessage += "Please enter a valid 10-digit phone number.\n";
+    }
+  
+    // Service dropdown validation
+    if (service === "" || service === "Select a service") {
+      isValid = false;
+      errorMessage += "Please select a service.\n";
+    }
+  
+    // Final check
+    if (!isValid) {
+      alert(errorMessage);
+    } else {
+      alert("Form submitted successfully!");
+    }
+  });
